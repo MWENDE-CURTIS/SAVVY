@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 Project Status: MVP in Progress
+##  Project Status: MVP in Progress
 
 We are currently developing the Minimum Viable Product (MVP) of SAVVY, which includes:
 * Partner restaurant integration (menu syncing)
@@ -15,20 +15,20 @@ We are currently developing the Minimum Viable Product (MVP) of SAVVY, which inc
 
 ---
 
-## 💡 Core Features
+##  Core Features
 
 | Feature                  | Description                                                                  |
 | :----------------------- | :--------------------------------------------------------------------------- |
-| 🧠 Smart Meal Planning   | Tailor meals by preferences, dietary needs, allergies, and fitness goals     |
-| 🍽️ Multi-Restaurant Access | Users can order from different restaurants within a single meal plan         |
-| 📆 Weekly Scheduling     | Plan meals ahead of time via a calendar interface                            |
-| 💳 Seamless Payments     | Integrated with M-Pesa for easy checkouts                                    |
-| 📲 Order Tracking        | Real-time updates for preparation and delivery statuses                      |
-| 📊 Analytics for Partners | Restaurants receive demand insights to optimize menus and prep               |
+|  Smart Meal Planning   | Tailor meals by preferences, dietary needs, allergies, and fitness goals     |
+|  Multi-Restaurant Access | Users can order from different restaurants within a single meal plan         |
+| Weekly Scheduling     | Plan meals ahead of time via a calendar interface                            |
+|  Seamless Payments     | Integrated with M-Pesa for easy checkouts                                    |
+| Order Tracking        | Real-time updates for preparation and delivery statuses                      |
+|  Analytics for Partners | Restaurants receive demand insights to optimize menus and prep               |
 
 ---
 
-## 🧑‍🍳 Target Users
+##  Target Users
 
 * Busy professionals & students needing healthy, time-saving options
 * Fitness enthusiasts with tailored nutritional goals
@@ -37,18 +37,35 @@ We are currently developing the Minimum Viable Product (MVP) of SAVVY, which inc
 
 ---
 
-## 🔧 Tech Stack
+###  Tech Stack Summary
+The SAVVY platform is designed for cross-platform development and scalability, prioritizing developer speed and code reuse using a modern, unified language ecosystem.
 
-* **Frontend**: ReactJS / Next.js (for web), Tailwind CSS
-* **Backend**: Node.js with Express OR Django (TBD)
-* **Database**: PostgreSQL / MongoDB
-* **Mobile (Future)**: Flutter or React Native
-* **Payment**: M-Pesa API integration
-* **Restaurant Integration**: REST API endpoints & admin dashboards
+Frontend (User & Admin Interface)
+We are adopting a single codebase approach to cover both the Web POC and the future mobile applications.
 
+Component	Technology	Rationale
+Language	Dart	Fast, efficient, and the native language of Flutter.
+Framework	Flutter	Enables building high-performance, natively compiled apps for Web, iOS, and Android from a single codebase.
+State Management	Riverpod	Recommended for robust, scalable state management, supporting complex features like the Meal Planning Engine.
+
+Export to Sheets
+Backend (API & Data)
+The backend is structured to handle API calls, complex meal planning logic, and external integrations reliably.
+
+Component	Technology	Rationale
+API/Logic	Dart (Shelf/Aqueduct) or Python (FastAPI/Django)	Recommended to maintain language consistency (Full-Stack Dart) or leverage team expertise in Python for backend development.
+Database	PostgreSQL	Ideal for handling structured data like user profiles, payment records, and menu details, ensuring data integrity.
+Cloud Hosting	Google Cloud Platform (GCP) or AWS	Provides the necessary scalability and serverless options (e.g., Cloud Run) to manage fluctuating order demand.
+
+Export to Sheets
+Core Integrations
+Integration	Purpose
+M-Pesa API	Seamless, secure checkout process for users.
+API Gateway	Normalizing and securing menu data pulled from diverse partner restaurant systems.
+Google Calendar API	Facilitating the Smart Scheduling System for meal planning.
 ---
 
-## 💻 My Contribution
+##  My Contribution
 
 * Led the conceptualization and platform design for SAVVY, focusing on user experience and restaurant integration.
 * Developed initial wireframes and core features for the web app interface, including meal planning and scheduling components.
@@ -57,28 +74,8 @@ We are currently developing the Minimum Viable Product (MVP) of SAVVY, which inc
 
 ---
 
-## 📦 Installation (For Developers)
 
-To get a local copy up and running, follow these simple steps.
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/yourusername/savvy-meal-planner.git](https://github.com/yourusername/savvy-meal-planner.git)
-    cd savvy-meal-planner
-    ```
-2.  **Install dependencies** (example for a Node.js/React setup; adjust based on final tech stack choice):
-    ```bash
-    npm install
-    ```
-3.  **Start the development server:**
-    ```bash
-    npm run dev
-    ```
-    *Note: API keys and M-Pesa sandbox credentials should be placed in a `.env` file (not included in the repository for security reasons).*
-
----
-
-### 🧪 Testing & MVP Limitations
+###  Testing & MVP Limitations
 
 * **Meal Plan Logic:** Currently rule-based; future plans include ML-driven suggestions.
 * **Restaurant Onboarding:** Manual process via admin panel in the MVP.
@@ -87,7 +84,7 @@ To get a local copy up and running, follow these simple steps.
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 * Implement AI-powered meal suggestions based on user history and preferences.
 * Develop a robust user ratings and preferences learning engine.
@@ -97,21 +94,21 @@ To get a local copy up and running, follow these simple steps.
 
 ---
 
-## 🤝 Partner With Us
+##  Partner With Us
 
 Are you a restaurant or food brand? Join the SAVVY platform to reach new customers, streamline deliveries, and be part of the smart eating revolution.
 
-📩 **Email:** partners@savvyapp.io
+ **Email:** mwende.curtis@gmail.com
 
 ---
 
-## 📜 License
+##  License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ---
 
-## 🙌 Acknowledgements
+##  Acknowledgements
 
 * Restaurant partners helping test the integration pipeline.
 * Early users providing valuable meal planning feedback.
