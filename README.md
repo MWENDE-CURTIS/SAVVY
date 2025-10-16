@@ -21,14 +21,14 @@ We are currently developing the Minimum Viable Product (MVP) of SAVVY, which inc
 | :----------------------- | :--------------------------------------------------------------------------- |
 |  Smart Meal Planning   | Tailor meals by preferences, dietary needs, allergies, and fitness goals     |
 |  Multi-Restaurant Access | Users can order from different restaurants within a single meal plan         |
-| Weekly Scheduling     | Plan meals ahead of time via a calendar interface                            |
+|  Weekly Scheduling     | Plan meals ahead of time via a calendar interface                            |
 |  Seamless Payments     | Integrated with M-Pesa for easy checkouts                                    |
-| Order Tracking        | Real-time updates for preparation and delivery statuses                      |
+|  Order Tracking        | Real-time updates for preparation and delivery statuses                      |
 |  Analytics for Partners | Restaurants receive demand insights to optimize menus and prep               |
 
 ---
 
-##  Target Users
+## Target Users
 
 * Busy professionals & students needing healthy, time-saving options
 * Fitness enthusiasts with tailored nutritional goals
@@ -37,8 +37,7 @@ We are currently developing the Minimum Viable Product (MVP) of SAVVY, which inc
 
 ---
 
-###  Tech Stack Summary
-The SAVVY platform is designed for cross-platform development and scalability, prioritizing developer speed and code reuse using a modern, unified language ecosystem.
+##  Tech Stack
 
 Frontend (User & Admin Interface)
 We are adopting a single codebase approach to cover both the Web POC and the future mobile applications.
@@ -74,7 +73,6 @@ Google Calendar API	Facilitating the Smart Scheduling System for meal planning.
 
 ---
 
-
 ###  Testing & MVP Limitations
 
 * **Meal Plan Logic:** Currently rule-based; future plans include ML-driven suggestions.
@@ -84,7 +82,7 @@ Google Calendar API	Facilitating the Smart Scheduling System for meal planning.
 
 ---
 
-##  Roadmap
+## 🗺 Roadmap
 
 * Implement AI-powered meal suggestions based on user history and preferences.
 * Develop a robust user ratings and preferences learning engine.
