@@ -39,27 +39,35 @@ We are currently developing the Minimum Viable Product (MVP) of SAVVY, which inc
 
 ##  Tech Stack
 
-Frontend (User & Admin Interface)
+## Tech Stack
+
+### Frontend (User & Admin Interface)
 
 We're adopting a single codebase approach to cover both the Web POC and future mobile applications.
 
-Component	Technology	Rationale
-Language	Dart	Fast, efficient, and the native language of Flutter.
-Framework	Flutter	Enables building high-performance, natively compiled apps for Web, iOS, and Android from a single codebase.
-State Management	Riverpod	Recommended for robust, scalable state management, supporting complex features like the Meal Planning Engine.
-Backend (API & Data)
+| Component         | Technology | Rationale                                                                 |
+|-------------------|------------|---------------------------------------------------------------------------|
+| Language          | Dart       | Fast, efficient, and the native language of Flutter.                      |
+| Framework         | Flutter    | Enables building high-performance, natively compiled apps for Web, iOS, and Android from a single codebase. |
+| State Management  | Riverpod   | Recommended for robust, scalable state management, supporting complex features like the Meal Planning Engine. |
+
+### Backend (API & Data)
 
 The backend is structured to handle API calls, complex meal planning logic, and external integrations reliably.
 
-Component	Technology	Rationale
-API/Logic	Dart (Shelf/Aqueduct) or Python (FastAPI/Django)	Recommended to maintain language consistency (Full-Stack Dart) or leverage team expertise in Python for backend development.
-Database	PostgreSQL	Ideal for handling structured data like user profiles, payment records, and menu details, ensuring data integrity.
-Cloud Hosting	Google Cloud Platform (GCP) or AWS	Provides scalability and serverless options (e.g., Cloud Run) to manage fluctuating order demand.
-Core Integrations
-Integration	Purpose
-M-Pesa API	Seamless, secure checkout process for users.
-API Gateway	Normalizing and securing menu data pulled from diverse partner restaurant systems.
-Google Calendar API	Facilitating the Smart Scheduling System for meal planning.
+| Component   | Technology                        | Rationale                                                                                   |
+|-------------|-----------------------------------|---------------------------------------------------------------------------------------------|
+| API/Logic   | Dart (Shelf/Aqueduct) or Python (FastAPI/Django) | Maintain language consistency (Full-Stack Dart) or leverage team expertise in Python for backend development. |
+| Database    | PostgreSQL                        | Ideal for handling structured data like user profiles, payment records, and menu details, ensuring data integrity. |
+| Cloud Hosting| Google Cloud Platform (GCP) or AWS| Provides scalability and serverless options (e.g., Cloud Run) to manage fluctuating order demand. |
+
+### Core Integrations
+
+| Integration         | Purpose                                                        |
+|---------------------|----------------------------------------------------------------|
+| M-Pesa API          | Seamless, secure checkout process for users.                   |
+| API Gateway         | Normalizing and securing menu data pulled from diverse partner restaurant systems. |
+| Google Calendar API | Facilitating the Smart Scheduling System for meal planning.    |
 ---
 
 ##  My Contribution
