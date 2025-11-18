@@ -1,89 +1,119 @@
-# Nutricare 🌱
+# SAVVY — Smart Meal Planning & Delivery Platform
 
-Nutricare is a **personalized meal planning and health management system** designed to cater to individual dietary needs and health conditions. It empowers users to lead healthier lifestyles with customized meal plans, health insights, and expert consultations.
-
----
-
-## Features 🥗
-
-- **Personalized Meal Plans:**  
-  Daily and weekly meal suggestions tailored to user health conditions (e.g., diabetes, high blood pressure).
-
-- **BMI Calculator:**  
-  Quickly assess body mass index to guide meal recommendations.
-
-- **Health Education:**  
-  Access a rich knowledge base with nutritional advice and health tips.
-
-- **Image Uploads:**  
-  Users can upload images of their meals and view them within the app.
-
-- **Consultation Services:**  
-  Book expert consultations with health and nutrition professionals.
-
-- **Feedback System:**  
-  Users can provide feedback via Google Forms integration.
-
-- **Healthy Shopping:**  
-  A curated marketplace featuring healthy food items.
+**SAVVY** is a centralized digital platform that empowers individuals, families, and companies to plan, customize, and receive meals from a variety of existing restaurants — all in one seamless experience. By integrating with multiple food providers, SAVVY allows users to maintain dietary goals, manage time, and enjoy culinary variety without the hassle.
 
 ---
 
-## Technologies Used 💻
+##  Project Status: MVP in Progress
 
-| Layer          | Technology               |
-| -------------- | ------------------------ |
-| Frontend       | HTML, CSS, JavaScript    |
-| Backend        | PHP                      |
-| Database       | MySQL                    |
-| Additional Tools | AJAX (for dynamic updates) |
-| Security       | User authentication and secure login system |
-
----
-
-## Setup Instructions 🛠️
-
-### Step 1: Copy Nutricare Files to XAMPP `htdocs`
-
-- Copy the entire `Nutricare` project folder into the `htdocs` directory of your XAMPP installation.
-
-### Step 2: Start XAMPP and Setup Database
-
-- Open the XAMPP control panel and start **Apache** and **MySQL** services.
-- Open your web browser and go to:  
-  `http://localhost/phpmyadmin`
-- Create a new database named:  
-  `nutricare`
-- Import the `nutricare.sql` file located inside the project’s **database** folder.
-
-### Step 3: User Login
-
-- URL: `http://localhost/Nutricare`  
-- Username: `nimeshdilhara2001@gmail.com`  
-- Password: `0606`  
-
-*Or you can register a new account.*
-
-### Step 4: Consultant Login
-
-- URL: `http://localhost/Nutricare/Coun`  
-- Username: `tehani966`  
-- Password: `0966`
-
-### Step 5: Admin Login
-
-- URL: `http://localhost/Nutricare/admin`  
-- Username: `nimesh`  
-- Password: `0606`
+We are currently developing the Minimum Viable Product (MVP) of SAVVY, which includes:
+* Partner restaurant integration (menu syncing)
+* Personalized meal planning engine
+* Smart scheduling system (calendar-based)
+* M-Pesa integration for payments
+* Basic web app interface for user orders & admin tracking
 
 ---
 
-## Troubleshooting
+##  Core Features
 
-If you encounter any issues or need further assistance, please contact me at:  
-**Email:** [nimeshdilhara2001@gmail.com](mailto:nimeshdilhara2001@gmail.com)
+| Feature                  | Description                                                                  |
+| :----------------------- | :--------------------------------------------------------------------------- |
+|  Smart Meal Planning   | Tailor meals by preferences, dietary needs, allergies, and fitness goals     |
+|  Multi-Restaurant Access | Users can order from different restaurants within a single meal plan         |
+|  Weekly Scheduling     | Plan meals ahead of time via a calendar interface                            |
+|  Seamless Payments     | Integrated with M-Pesa for easy checkouts                                    |
+|  Order Tracking        | Real-time updates for preparation and delivery statuses                      |
+|  Analytics for Partners | Restaurants receive demand insights to optimize menus and prep               |
 
 ---
 
-Happy coding! 😊  
-— MommentX & Nimesh
+## Target Users
+
+* Busy professionals & students needing healthy, time-saving options
+* Fitness enthusiasts with tailored nutritional goals
+* Families seeking flexible, affordable meal routines
+* Restaurants looking to expand reach & revenue without owning delivery tech
+
+---
+
+##  Tech Stack
+
+## Tech Stack
+
+### Frontend (User & Admin Interface)
+
+We're adopting a single codebase approach to cover both the Web POC and future mobile applications.
+
+| Component         | Technology | Rationale                                                                 |
+|-------------------|------------|---------------------------------------------------------------------------|
+| Language          | Dart       | Fast, efficient, and the native language of Flutter.                      |
+| Framework         | Flutter    | Enables building high-performance, natively compiled apps for Web, iOS, and Android from a single codebase. |
+| State Management  | Riverpod   | Recommended for robust, scalable state management, supporting complex features like the Meal Planning Engine. |
+
+### Backend (API & Data)
+
+The backend is structured to handle API calls, complex meal planning logic, and external integrations reliably.
+
+| Component   | Technology                        | Rationale                                                                                   |
+|-------------|-----------------------------------|---------------------------------------------------------------------------------------------|
+| API/Logic   | Dart (Shelf/Aqueduct) or Python (FastAPI/Django) | Maintain language consistency (Full-Stack Dart) or leverage team expertise in Python for backend development. |
+| Database    | PostgreSQL                        | Ideal for handling structured data like user profiles, payment records, and menu details, ensuring data integrity. |
+| Cloud Hosting| Google Cloud Platform (GCP) or AWS| Provides scalability and serverless options (e.g., Cloud Run) to manage fluctuating order demand. |
+
+### Core Integrations
+
+| Integration         | Purpose                                                        |
+|---------------------|----------------------------------------------------------------|
+| M-Pesa API          | Seamless, secure checkout process for users.                   |
+| API Gateway         | Normalizing and securing menu data pulled from diverse partner restaurant systems. |
+| Google Calendar API | Facilitating the Smart Scheduling System for meal planning.    |
+---
+
+##  My Contribution
+
+* Led the conceptualization and platform design for SAVVY, focusing on user experience and restaurant integration.
+* Developed initial wireframes and core features for the web app interface, including meal planning and scheduling components.
+* Researched and outlined the technical specifications for M-Pesa API integration and multi-restaurant menu syncing.
+* Contributed to defining the MVP scope and future roadmap, aligning with user needs and market opportunities.
+
+---
+
+###  Testing & MVP Limitations
+
+* **Meal Plan Logic:** Currently rule-based; future plans include ML-driven suggestions.
+* **Restaurant Onboarding:** Manual process via admin panel in the MVP.
+* **Platform Scope:** Limited to web only in the MVP phase; mobile apps are a roadmap item.
+* **Delivery Area:** MVP scope is focused on Nairobi.
+
+---
+
+## 🗺 Roadmap
+
+* Implement AI-powered meal suggestions based on user history and preferences.
+* Develop a robust user ratings and preferences learning engine.
+* Expand to multi-city operations and streamline delivery partner onboarding.
+* Build native mobile applications for both customers and restaurant partners.
+* Develop APIs for third-party health & fitness integrations.
+
+---
+
+##  Partner With Us
+
+Are you a restaurant or food brand? Join the SAVVY platform to reach new customers, streamline deliveries, and be part of the smart eating revolution.
+
+ **Email:** mwende.curtis@gmail.com
+
+---
+
+##  License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+---
+
+##  Acknowledgements
+
+* Restaurant partners helping test the integration pipeline.
+* Early users providing valuable meal planning feedback.
+* The Open Source and developer communities for powering innovation.
