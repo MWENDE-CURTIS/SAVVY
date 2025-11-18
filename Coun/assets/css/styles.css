@@ -1,0 +1,421 @@
+/* 
+    VARIABLES DECLARATION ON ROOT
+*/
+:root {
+    --green: rgb(33, 167, 250);
+    --red: rgb(252, 86, 108);
+    --dusky-green: rgb(18, 156, 231);
+    --opac-white: rgba(255, 255, 255, .8);
+    --form-txt:  rgba(255, 255, 255, .5);
+    --darky: #1d2b3a;
+    --light-grey: rgb(105, 105, 105);
+}
+
+/*
+    COMMON STYLING
+*/
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+    overflow: hidden;
+    background-color: var(--dusky-green);
+}
+
+/* 
+    MAIN(SIGN-UP CARD) SECTION
+*/
+.card-container {
+    display: grid;
+    grid-template-columns: calc(100% - 60%) auto;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--darky);
+}
+
+/* 
+    FORM SECTION
+*/
+.form-container {
+    width: 50vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    padding: 50px;
+    color: var(--form-txt);
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+}
+
+.form-header {
+    grid-column: 1 / -1;
+    letter-spacing: .06em;
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: white;
+}
+.form-header2 {
+    grid-column: 1 / -1;
+    letter-spacing: .06em;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+input, select {
+    display: block;
+    border-radius: 4px;
+    border: 0;
+    border-bottom: 1px solid rgb(0,0,0,.4);
+    padding: 6px 6px 6px 10px;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all .5s ease-in;
+    color: var(--opac-white);
+} 
+input::placeholder, select::placeholder {
+    content: none;
+}
+span {
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .4s;
+}
+[type="submit"] {
+    border: 0;
+    background-color: var(--dusky-green);
+    color: white;
+    padding: 10px 50px;
+    letter-spacing: .05em;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 17px;
+    outline: none;
+}
+form {
+    width: auto;
+    display: grid;
+    place-items: center;
+}
+.btm-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+.btm-text-highlighted {
+    color: var(--dusky-green);
+}
+.input-container {
+    position: relative;
+}
+span:not(.btm-text-highlighted) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/*
+    INPUT FIELD EFFECTS SECTION
+*/
+input:focus ~ span,
+input:valid ~ span,
+select:focus ~ span,
+select:valid ~ span {
+    font-size: 10px;
+    transform: translateX(4px) translateY(-7px);
+    font-size: 0.80em;
+    padding: 0 6px;
+    color: var(--cyny-green);
+    background-color: var(--dusky-green);
+    color: white;
+    border-radius: 2px;
+}
+input:focus,
+input:focus-visible,
+select:focus,
+select:focus-visible {
+    border: 1px solid var(--green);
+    box-shadow: 0 0 5px rgb(0,0,0,.3);
+    outline: none;
+}
+input:valid,
+select:valid {
+    border: 1px solid var(--green);  
+}
+
+/* 
+    ERROR PROMPTER SECTION
+*/
+.error {
+    color: rgb(255, 51, 51);
+    font-family: sans-serif;
+    font-weight: 500;
+    text-transform: none;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+/*
+    IMAGE ILLUSTRATION SECTION
+*/
+.image-container {
+    display: grid;
+    place-items: center;
+    background-color: var(--dusky-green);
+    color: white;
+}
+.image-container > img {
+    width: calc(90%);
+}
+.company, 
+.image-container > .quote {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 19px;
+}
+.company {
+    font-size: 34px;
+    text-align: left;
+    height: 70px;
+    align-self: flex-start;
+    padding: 2% 0 0 5%;
+}
+.outro-overlay > .company {
+    position: absolute;
+    top: 0;
+}
+.mobile-btm-nav {
+    display: none;
+}
+
+/*
+    FORM NAVIGATION (FOR-MOBILE)
+*/
+.mobile-btm-nav {
+    text-decoration: none;
+    display: none;
+}
+.mobile-btm-nav > img {
+    transform: scale(.3) rotateZ(180deg);
+}
+
+/*
+    FLOATING ANIMATION FOR BOTTOM-NAV (FOR-MOBILE-VERSION)
+*/
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-10px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+/* .card-container {
+    display: none;
+} */
+
+/* 
+    GREETING SECTION (SHOWS AFTER SIGNING UP)
+*/
+.outro-overlay {
+    display: flex;
+    background-color: var(--dusky-green);
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    position: relative;
+}
+.outro-overlay > #signedUp-illustration {
+    height: 90%;
+    z-index: 2;
+}
+.outro-overlay > .shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: 1.3s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) slideRight;
+    width: 150%;
+}
+.outro-overlay > .outro-greeting {
+    z-index: 3;
+    font-weight: 700;
+    letter-spacing: .02em;
+    word-spacing: .1em;
+}
+.disabled {
+    display: none;
+}
+
+/*
+  SVG ANIMATION
+*/
+.slideUp-animation {
+    animation: 1.3s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) slideUp;
+    animation-delay: 0s;
+} 
+.slideRight-animation {
+    animation: 1.3s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) slideRight;
+    animation-delay: 0s;
+}
+@keyframes slideUp {  
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: inherit; }
+}
+@keyframes slideRight {              
+    0% { opacity: 0; transform: translateX(30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/*
+    AUTHOR LINK
+*/
+.author-link {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 10px;
+    z-index: 5;
+}
+.author-link, a {
+    text-decoration: none;
+    color: var(--light-grey);
+    transition: .3s ease-out;
+}
+.author-link > a:hover {
+    color: var(--darky);
+}
+
+/*
+    MEDIA QUERY SECTION
+*/
+@media only screen and (max-width: 540px) {
+    /* For mobile phones: */
+    body {
+        width: 100%;
+        overflow: visible;
+    }
+    .image-container {
+        display: none;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .form-container {
+        width: 100%;
+        padding: 20px;
+        gap: 20px;
+    }
+    form {
+        padding: 20px;
+        width: 100%;
+    }
+    .outro-overlay {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
+    .outro-overlay > #signedUp-illustration {
+        height: auto;
+        z-index: 2; 
+    }
+    .outro-overlay > .shape {
+        display: none;
+    }
+    .outro-overlay > .outro-greeting {
+        font-size: 20px;
+        order: 1;
+    }
+}
+
+/* Style for the message box */
+.message-box {
+    position: fixed;
+    top: 20px; /* Adjust top position as needed */
+    right: 20px; /* Adjust right position as needed */
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+/* Style the dropdown container */
+.dropdown-checkbox {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the dropdown button */
+.dropdown-toggle {
+    background-color: transparent;
+    color: var(--opac-white);
+    padding: 10px 15px;
+    border: 1px solid rgb(0,0,0,.4);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--darky);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Show the dropdown content when the dropdown button is hovered over */
+.dropdown-checkbox:hover .dropdown-content {
+    display: block;
+}
+
+/* Style the checkbox label */
+.dropdown-content label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--opac-white);
+}
+
+/* Style the checkbox */
+.dropdown-content input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#meal-plan option {
+    color: rgb(6, 55, 95); /* Change 'blue' to the color you prefer */
+}
+/* Style the dropdown */
+#gender {
+    display: block;
+    border-radius: 4px;
+    border: 0;
+    border-bottom: 1px solid rgb(0,0,0,.4);
+    padding: 6px 6px 6px 10px;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all .5s ease-in;
+    color: var(--opac-white);
+}
+
+/* Style the dropdown options */
+#gender option {
+    background-color: var(--darky);
+    color: var(--opac-white);
+}
