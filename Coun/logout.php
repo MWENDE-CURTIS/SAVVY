@@ -9,6 +9,6 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to login page or any other desired page
-header("Location: http://localhost/Nutricare/Coun/counsultlogin.html");
+header("Location: http://localhost/SAVVY/Coun/counsultlogin.html");
 exit;
 ?>

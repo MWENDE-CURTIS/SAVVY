@@ -5,7 +5,7 @@ session_start(); // Start the session to access session variables
 $servername = "localhost";
 $db_username = "root";
 $db_password = "";
-$db_name = "Nutricare";
+$db_name = "SAVVY";
 
 // Create connection
 $conn = new mysqli($servername, $db_username, $db_password, $db_name);
@@ -149,7 +149,7 @@ $stmt->close();
             <div class="logo-image">
                 <img src="images/logo.png" alt="">
             </div>
-            <span class="logo_name">Nutricare</span>
+            <span class="logo_name">SAVVY</span>
         </div>
         <div class="menu-items">
             <ul class="nav-links">

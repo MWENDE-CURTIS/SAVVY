@@ -6,9 +6,9 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Database connection parameters
 $servername = "localhost"; // Change this if your database is hosted on a different server
-$username = "root"; // Change this to your database username
-$password = ""; // Change this to your database password
-$dbname = "Nutricare";
+$username = "root"; 
+$password = ""; 
+$dbname = "SAVVY";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         // Registration successful, redirect to login page
-        header("Location: http://localhost/Nutricare/newadmin.php?success=Registration successful!");
+        header("Location: http://localhost/SAVVY/newadmin.php?success=Registration successful!");
         exit();
     } else {
         // Registration failed, display error message

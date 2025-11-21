@@ -5,7 +5,7 @@ session_start(); // Start the session to store session variables
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "Nutricare";
+$dbname = "SAVVY";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $consultant = $result->fetch_assoc();
         $_SESSION['consultant_id'] = $consultant['consultant_id'];
         $_SESSION['username'] = $username;
-        header("Location: http://localhost/Nutricare/adminCoundaily_insert2.php"); // Redirect to admin_daily_insert.php
+        header("Location: http://localhost/SAVVY/adminCoundaily_insert2.php"); // Redirect to admin_daily_insert.php
         exit();
     } else {
         echo "<script>

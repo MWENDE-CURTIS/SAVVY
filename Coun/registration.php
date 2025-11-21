@@ -5,7 +5,7 @@ session_start(); // Start the session to store session variables
 $servername = "localhost"; // Change this if your database is hosted on a different server
 $username = "root"; // Change this to your database username
 $password = ""; // Change this to your database password
-$dbname = "Nutricare";
+$dbname = "SAVVY";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

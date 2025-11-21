@@ -26,7 +26,7 @@ if(isset($_SESSION['error_message'])) {
     <meta name="msapplication-navbutton-color" content="#06aa5e">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Sign up | Nutricare ™</title>
+    <title>Sign up | SAVVY™</title>
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <script src="./assets/js/script.js" defer></script>
@@ -34,7 +34,7 @@ if(isset($_SESSION['error_message'])) {
 <body>
     <main class="card-container slideUp-animation">
         <div class="image-container">
-            <h1 class="company">Nutricare <sup>&trade;</sup></h1>
+            <h1 class="company">SAVVY <sup>&trade;</sup></h1>
             <img src="./assets/images/signUp.svg" class="illustration" alt="">
             <p class="quote">Sign up today to get exciting offers..!</p>
             <a href="#btm" class="mobile-btm-nav">
@@ -78,7 +78,7 @@ if(isset($_SESSION['error_message'])) {
                 <div class="input-container">
                     
                     <div class="dropdown-checkbox">
-                        <button class="dropdown-toggle">Select Health Condition</button>
+                        <button class="dropdown-toggle">Select Health Condition(If any..)</button>
                         <div class="dropdown-content">
                             <label><input type="checkbox" name="diabetic" value="Diabetic"> Diabetic</label>
                             <label><input type="checkbox" name="high_blood_pressure" value="High Blood Pressure"> High Blood Pressure</label>
@@ -129,7 +129,7 @@ if(isset($_SESSION['error_message'])) {
                 <div id="btm">
                     <button type="submit" class="submit-btn">Create Account</button>
                     <p class="btm-text">
-                        Already have an account..? <span class="btm-text-highlighted"><a href="http://localhost/Nutricare/login.html">Login</a></span>
+                        Already have an account..? <span class="btm-text-highlighted"><a href="http://localhost/SAVVY/login.html">Login</a></span>
                     </p>
                 </div>
             </div>
