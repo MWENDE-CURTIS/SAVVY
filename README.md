@@ -1,5 +1,6 @@
 
 -----SAVVY  — Smart Meal Planning, Health Management & Delivery Platform
+Live deployment link : https://savvy-s6vs.onrender.com
 Pitch deck link: https://app.presentations.ai/view/e7UNkKvDyg
 
 SAVVY is a personalized meal planning and health management system designed to help individuals achieve their wellness goals through intelligent meal planning, nutritional guidance, and health tracking. Starting as a web-first platform focused on meal planning and healthy dieting, SAVVY will eventually scale to mobile applications and integrate delivery services from select restaurants and takeout outlets.
