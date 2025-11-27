@@ -14,7 +14,7 @@ Phase 3 (Future): Mobile applications for iOS and Android to enhance accessibili
 
 
 ----- Current Features
-FeatureDescription🍽️ Personalized Meal PlansDaily and weekly meal suggestions tailored to individual health conditions (diabetes, hypertension, weight management, etc.)📊 BMI CalculatorQuick body mass index assessment to guide meal recommendations📚 Health Education HubComprehensive knowledge base with nutritional advice and health tips🖼️ Meal Image UploadUsers can upload and track photos of their meals for better accountability👨‍⚕️ Expert ConsultationsBook appointments with health and nutrition professionals💬 Feedback SystemIntegrated feedback mechanism for continuous improvement🛒 Healthy ShoppingCurated marketplace featuring nutritious food items and healthy alternatives
+FeatureDescription Personalized Meal PlansDaily and weekly meal suggestions tailored to individual health conditions (diabetes, hypertension, weight management, etc.) BMI CalculatorQuick body mass index assessment to guide meal recommendations Health Education HubComprehensive knowledge base with nutritional advice and health tips Meal Image UploadUsers can upload and track photos of their meals for better accountability Expert ConsultationsBook appointments with health and nutrition professionals Feedback SystemIntegrated feedback mechanism for continuous improvement Healthy ShoppingCurated marketplace featuring nutritious food items and healthy alternatives
 
 ----- Target Users
 
