@@ -3,6 +3,45 @@
 Live deployment link : savvy-production.up.railway.app
 Pitch deck link: https://app.presentations.ai/view/e7UNkKvDyg
 
+----- Setup Instructions
+Prerequisites
+
+XAMPP installed and running
+Git (for version control)
+Modern web browser
+
+Step 1: Project Setup
+
+Copy the entire SAVVY project folder into your XAMPP htdocs directory:
+
+   C:\xampp\htdocs\SAVVY
+Step 2: Database Configuration
+
+Start Apache and MySQL services in XAMPP Control Panel
+Navigate to http://localhost/phpmyadmin
+Create a new database named: savvy
+Import the savvy.sql file located in the project's database folder
+
+Step 3: Access the Application
+User Portal
+
+URL: http://localhost/SAVVY
+Test Credentials:
+
+Email: mwende.curtis@gmail.com
+Password: 123456Mc
+
+Or register a new account
+
+Consultant Portal
+
+URL: http://localhost/SAVVY/Coun
+Test Credentials:
+
+Username: tehani966
+Password: 0966
+
+
 SAVVY is a personalized meal planning and health management system designed to help individuals achieve their wellness goals through intelligent meal planning, nutritional guidance, and health tracking. Starting as a web-first platform focused on meal planning and healthy dieting, SAVVY will eventually scale to mobile applications and integrate delivery services from select restaurants and takeout outlets.
 
 ----- Project Vision
@@ -36,54 +75,7 @@ Local Server: XAMPP (Apache + MySQL)
 Version Control: Git
 
 
------ Setup Instructions
-Prerequisites
-
-XAMPP installed and running
-Git (for version control)
-Modern web browser
-
-Step 1: Project Setup
-
-Copy the entire SAVVY project folder into your XAMPP htdocs directory:
-
-   C:\xampp\htdocs\SAVVY
-Step 2: Database Configuration
-
-Start Apache and MySQL services in XAMPP Control Panel
-Navigate to http://localhost/phpmyadmin
-Create a new database named: savvy
-Import the savvy.sql file located in the project's database folder
-
-Step 3: Access the Application
-User Portal
-
-URL: http://localhost/SAVVY
-Test Credentials:
-
-Email: mwende.curtis@gmail.com
-Password: 123456Mc
-
-
-Or register a new account
-
-Consultant Portal
-
-URL: http://localhost/SAVVY/Coun
-Test Credentials:
-
-Username: tehani966
-Password: 0966
-
-
-Admin Dashboard
-
-URL: http://localhost/SAVVY/admin
-Test Credentials:
-
-Username: nimesh
-Password: 0606
-
+-----
 
 ----- Development Roadmap
 Phase 1: Core Health & Meal Planning  (Current)
