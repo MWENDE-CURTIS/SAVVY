@@ -11,7 +11,6 @@ if (!extension_loaded('mysqli')) {
 echo "✓ mysqli extension loaded<br>";
 
 $databaseUrl = getenv('MYSQL_URL') ?: getenv('CLEARDB_DATABASE_URL') ?: getenv('DATABASE_URL');
-echo "databaseUrl: " . ($databaseUrl ? "SET" : "NOT SET") . "<br>";
 
 if ($databaseUrl) {
     $parts = parse_url($databaseUrl);
@@ -28,25 +27,11 @@ if ($databaseUrl) {
     $db_port = (int)(getenv('DB_PORT') ?: 3306);
 }
 
-echo "Connecting to: $db_host:$db_port / $db_name / user: $db_user<br>";
-echo "--- Attempting connection ---<br>";
-
-try {
-    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name, $db_port);
-    echo "✓ Connection object created<br>";
-} catch (Exception $e) {
-    die('Exception: ' . $e->getMessage());
-}
-
-if (!$conn) {
-    die('ERROR: $conn is null!');
-}
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name, $db_port);
 
 if ($conn->connect_errno) {
-    die('Connection Error: ' . $conn->connect_error);
+    die('Connection failed: ' . $conn->connect_error);
 }
 
-echo "✓ Connected successfully<br>";
 $conn->set_charset('utf8mb4');
-echo "=== End Debug ===<br>";
 ?>

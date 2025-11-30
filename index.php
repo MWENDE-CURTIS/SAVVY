@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . '/connect.php';
-session_start(); // Start the session to access session variables
+session_start();
+require_once __DIR__ . '/connect.php'; // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
 if (!isset($_SESSION['email'])) {
