@@ -1,8 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/connect.php'; // Start the session to access session variables
+require_once __DIR__ . '/connect.php';
 
-// Check if user is logged in, if not redirect to login page
 if (!isset($_SESSION['email'])) {
     header("Location:login.html");
     exit();
