@@ -1,50 +1,41 @@
 <?php
+<?php
 session_start();
-require_once __DIR__ . '/connect.php'; // Start the session to access session variables
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Debug: Check if connect.php is loaded
-require_once dirname(__FILE__) . '/connect.php';
-
-echo "DEBUG: conn is " . (isset($conn) ? "SET" : "NOT SET") . "<br>";
-echo "DEBUG: conn type: " . gettype($conn) . "<br>";
+require_once __DIR__ . '/connect.php';
 
 if (!$conn) {
-    echo "ERROR: conn is null or false<br>";
     die('Database connection failed');
 }
 
-// Process login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve email and password from form
-    $email = $_POST['email'];
-    
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    // Query to check if user exists with provided credentials
-    $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
-    $result = $conn->query($sql);
+    // Use prepared statement to prevent SQL injection
+    $stmt = $conn->prepare("SELECT id, email, password FROM user WHERE email = ? LIMIT 1");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // User found, set session variables and redirect to dashboard
         $row = $result->fetch_assoc();
-        $_SESSION['user_id'] = $row['user_id'];
-        $_SESSION['email'] = $row['email'];
-        header("Location: index.php"); // Redirect to dashboard page
-        exit();
+        
+        // If password is hashed with password_hash()
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['email'] = $row['email'];
+            header("Location: adashboard.php");
+            exit();
+        } else {
+            // Password incorrect
+            echo "<script>alert('Invalid email or password!'); window.location.href = 'login.html';</script>";
+            exit();
+        }
     } else {
-        // User not found or credentials incorrect, redirect back to login page with error message
-        echo "<script>
-                alert('Invalid email or password!');
-                window.location.href = 'login.html';
-              </script>";
+        // User not found
+        echo "<script>alert('Invalid email or password!'); window.location.href = 'login.html';</script>";
         exit();
     }
+    $stmt->close();
 }
-
-// Close connection
-$conn->close();
 ?>
-
-
