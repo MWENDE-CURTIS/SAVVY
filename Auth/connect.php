@@ -1,5 +1,5 @@
 <?php
-<?php
+
 // Environment-aware DB connector for SAVVY
 
 $databaseUrl = getenv('MYSQL_URL') ?: getenv('CLEARDB_DATABASE_URL') ?: getenv('DATABASE_URL');
