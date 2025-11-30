@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+require_once __DIR__ . '/connect.php'; // Start the session to access session variables
 // Diagnostic version to find the real issue
 
 echo "=== DB Connection Debug ===<br>";
