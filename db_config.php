@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 // --- Database Configuration and Connection ---
 
 // 1. Fetch the single, comprehensive database URL provided by the hosting service (e.g., Railway).
@@ -22,16 +23,16 @@ if ($url_parts === false || !isset($url_parts['host'], $url_parts['user'], $url_
 
 // 4. Extract individual connection parameters
 // The 'path' starts with a slash, so we remove it to get the pure database name.
-$servername = $url_parts['host']; 
-$username = $url_parts['user']; 
-$password = $url_parts['pass'];
-$dbname = ltrim($url_parts['path'], '/'); 
+ 
+ 
+
+ 
 // Use the URL port if available, otherwise default to 3306 for MySQL
-$port = isset($url_parts['port']) ? (int)$url_parts['port'] : 3306; 
+ 
 
 // Create connection to the remote MySQL Database with PORT
 // Note: The port is passed as the 5th argument (int)
-$conn = new mysqli($servername, $username, $password, $dbname, $port); 
+ 
 
 // Check connection
 if ($conn->connect_error) {
@@ -42,3 +43,4 @@ if ($conn->connect_error) {
 
 // Optionally set character set
 $conn->set_charset("utf8");
+

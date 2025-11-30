@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -132,11 +133,14 @@ $conn->close();
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
             </div>
-            <h1>Welcome, <?php echo $user_fname; ?></h1>
-            <a href="updateprofileview.php"><img src="<?php echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;" ></a>
+            <h1>Welcome, <?php
+include_once __DIR__ . '/connect.php'; echo $user_fname; ?></h1>
+            <a href="updateprofileview.php"><img src="<?php
+include_once __DIR__ . '/connect.php'; echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;" ></a>
         </div>
         <div class="dash-content">
         <?php
+include_once __DIR__ . '/connect.php';
             include 'notificationbutton.php';
 
                           ?>
@@ -148,3 +152,5 @@ $conn->close();
     <script src="script.js"></script>
 </body>
 </html>
+
+

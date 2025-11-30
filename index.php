@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -488,35 +489,44 @@ $conn->close();
                 <input type="text" placeholder="Search here...">
             </div>
             <a href="notification.php"><h1>Notification</h1></a>
-            <h1>Welcome,<?php echo $user_fname; ?></h1>
+            <h1>Welcome,<?php
+include_once __DIR__ . '/connect.php'; echo $user_fname; ?></h1>
             
-            <a href="updateprofileview.php"><img src="<?php echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;" ></a>
+            <a href="updateprofileview.php"><img src="<?php
+include_once __DIR__ . '/connect.php'; echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;" ></a>
         </div>
 
         <div class="dash-content">
             <div class="meal-plan">
                 <!-- Meal plan on the left -->
                 <div class="meal">
-                    <h2><span class="highlight"><?php  echo $plan_message ;?></span></h2>
+                    <h2><span class="highlight"><?php
+include_once __DIR__ . '/connect.php';  echo $plan_message ;?></span></h2>
                     <p>Enjoy delicious meals suitable for individuals with diabetes.</p>
                 </div>
               
                 <!-- Date and time on the right -->
                 <div id="datetime"></div>
             </div>
-            <h1>Today Your Meal Plan   <?php echo $user_fname; ?></h1>
+            <h1>Today Your Meal Plan   <?php
+include_once __DIR__ . '/connect.php'; echo $user_fname; ?></h1>
             
             <!-- Daily Meal Plan section -->
             <div class="mcontainer">
     <div class="row">
-        <?php while($row = mysqli_fetch_assoc($result_breakfast)): ?>
+        <?php
+include_once __DIR__ . '/connect.php'; while($row = mysqli_fetch_assoc($result_breakfast)): ?>
         <div class="col-md-3">
             <div class="meal-card">
-                <img src="<?php echo $row['meal_image']; ?>" alt="Meal">
+                <img src="<?php
+include_once __DIR__ . '/connect.php'; echo $row['meal_image']; ?>" alt="Meal">
                 <div class="meal-card-content">
-                    <div class="meal-time"><?php echo $row['meal_time']; ?></div>
-                    <div class="meal-name"><?php echo $row['plan_name']; ?></div>
-                    <div class="meal-details"><?php echo $row['plan_details']; ?></div>
+                    <div class="meal-time"><?php
+include_once __DIR__ . '/connect.php'; echo $row['meal_time']; ?></div>
+                    <div class="meal-name"><?php
+include_once __DIR__ . '/connect.php'; echo $row['plan_name']; ?></div>
+                    <div class="meal-details"><?php
+include_once __DIR__ . '/connect.php'; echo $row['plan_details']; ?></div>
                     <div class="nutrition-values">
                         <p>Calories: 350</p>
                         <p>Protein: 8g</p>
@@ -526,16 +536,22 @@ $conn->close();
                 </div>
             </div>
         </div>
-        <?php endwhile; ?>
+        <?php
+include_once __DIR__ . '/connect.php'; endwhile; ?>
         
-        <?php while($row = mysqli_fetch_assoc($result_lunch)): ?>
+        <?php
+include_once __DIR__ . '/connect.php'; while($row = mysqli_fetch_assoc($result_lunch)): ?>
         <div class="col-md-3">
             <div class="meal-card">
-                <img src="<?php echo $row['meal_image']; ?>" alt="Meal">
+                <img src="<?php
+include_once __DIR__ . '/connect.php'; echo $row['meal_image']; ?>" alt="Meal">
                 <div class="meal-card-content">
-                    <div class="meal-time"><?php echo $row['meal_time']; ?></div>
-                    <div class="meal-name"><?php echo $row['plan_name']; ?></div>
-                    <div class="meal-details"><?php echo $row['plan_details']; ?></div>
+                    <div class="meal-time"><?php
+include_once __DIR__ . '/connect.php'; echo $row['meal_time']; ?></div>
+                    <div class="meal-name"><?php
+include_once __DIR__ . '/connect.php'; echo $row['plan_name']; ?></div>
+                    <div class="meal-details"><?php
+include_once __DIR__ . '/connect.php'; echo $row['plan_details']; ?></div>
                     <div class="nutrition-values">
                         <p>Calories: 350</p>
                         <p>Protein: 8g</p>
@@ -545,15 +561,21 @@ $conn->close();
                 </div>
             </div>
         </div>
-        <?php endwhile; ?>
-        <?php while($row = mysqli_fetch_assoc($result_dinner)): ?>
+        <?php
+include_once __DIR__ . '/connect.php'; endwhile; ?>
+        <?php
+include_once __DIR__ . '/connect.php'; while($row = mysqli_fetch_assoc($result_dinner)): ?>
         <div class="col-md-3">
             <div class="meal-card">
-                <img src="<?php echo $row['meal_image']; ?>" alt="Meal">
+                <img src="<?php
+include_once __DIR__ . '/connect.php'; echo $row['meal_image']; ?>" alt="Meal">
                 <div class="meal-card-content">
-                    <div class="meal-time"><?php echo $row['meal_time']; ?></div>
-                    <div class="meal-name"><?php echo $row['plan_name']; ?></div>
-                    <div class="meal-details"><?php echo $row['plan_details']; ?></div>
+                    <div class="meal-time"><?php
+include_once __DIR__ . '/connect.php'; echo $row['meal_time']; ?></div>
+                    <div class="meal-name"><?php
+include_once __DIR__ . '/connect.php'; echo $row['plan_name']; ?></div>
+                    <div class="meal-details"><?php
+include_once __DIR__ . '/connect.php'; echo $row['plan_details']; ?></div>
                     <div class="nutrition-values">
                         <p>Calories: 350</p>
                         <p>Protein: 8g</p>
@@ -563,7 +585,8 @@ $conn->close();
                 </div>
             </div>
         </div>
-        <?php endwhile; ?>
+        <?php
+include_once __DIR__ . '/connect.php'; endwhile; ?>
     </div>
 </div>
 
@@ -648,3 +671,4 @@ $conn->close();
 <script src="script.js"></script>
 </body>
 </html>
+

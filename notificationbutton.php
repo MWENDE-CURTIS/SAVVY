@@ -1,12 +1,13 @@
 <?php
+include_once __DIR__ . '/connect.php';
 // Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "SAVVY";
+
+
+
+
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -98,23 +99,30 @@ $conn->close();
 <body>
     <div class="notifications-container">
         <div class="notifications-header">Notifications</div>
-        <?php if (!empty($notifications)) : ?>
-            <?php foreach ($notifications as $notification) : ?>
+        <?php
+include_once __DIR__ . '/connect.php'; if (!empty($notifications)) : ?>
+            <?php
+include_once __DIR__ . '/connect.php'; foreach ($notifications as $notification) : ?>
                 <div class="notification-item">
                     <div class="notification-message">
-                        <?php echo htmlspecialchars($notification['message']); ?>
+                        <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($notification['message']); ?>
                     </div>
                     <div class="notification-time">
-                        <?php echo date('d M Y, H:i', strtotime($notification['created_at'])); ?>
+                        <?php
+include_once __DIR__ . '/connect.php'; echo date('d M Y, H:i', strtotime($notification['created_at'])); ?>
                     </div>
                     <form method="post" style="margin: 0;">
                        
                     </form>
                 </div>
-            <?php endforeach; ?>
-        <?php else : ?>
+            <?php
+include_once __DIR__ . '/connect.php'; endforeach; ?>
+        <?php
+include_once __DIR__ . '/connect.php'; else : ?>
             <div class="notification-item">No notifications found.</div>
-        <?php endif; ?>
+        <?php
+include_once __DIR__ . '/connect.php'; endif; ?>
     </div>
 
     <script>
@@ -122,3 +130,5 @@ $conn->close();
     </script>
 </body>
 </html>
+
+

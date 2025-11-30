@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 // Check if a session is not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start(); // Start the session to access session variables
@@ -12,13 +13,13 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -26,7 +27,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve admin information from database
-$username = $_SESSION['username'];
+
 $sql = "SELECT * FROM admin WHERE username='$username'";
 $result = $conn->query($sql);
 
@@ -124,13 +125,17 @@ $conn->close();
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
             </div>
-            <h1>Welcome, <?php echo $admin_name; ?></h1>
+            <h1>Welcome, <?php
+include_once __DIR__ . '/connect.php'; echo $admin_name; ?></h1>
             <img src="images/profile.jpg" alt="Profile Image">
         </div>
         <div class="dash-content">
             <div class="container">
-            <?php include 'feedbackview.php';?> 
+            <?php
+include_once __DIR__ . '/connect.php'; include 'feedbackview.php';?> 
               
     <script src="script.js"></script>
 </body>
 </html>
+
+

@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -22,7 +23,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve admin information from database
-$username = $_SESSION['username'];
+
 $sql = "SELECT * FROM consultant WHERE username='$username'";
 $result = $conn->query($sql);
 
@@ -118,7 +119,8 @@ $conn->close();
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
             </div>
-            <h1>Welcome, <?php echo htmlspecialchars($consultant_name); ?></h1>
+            <h1>Welcome, <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($consultant_name); ?></h1>
             <img src="images/profile.jpg" alt="Profile Image">
         </div>
         <div class="dash-content">
@@ -154,18 +156,25 @@ $conn->close();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if ($diet_plans_result->num_rows > 0): ?>
-                            <?php while ($row = $diet_plans_result->fetch_assoc()): ?>
+                        <?php
+include_once __DIR__ . '/connect.php'; if ($diet_plans_result->num_rows > 0): ?>
+                            <?php
+include_once __DIR__ . '/connect.php'; while ($row = $diet_plans_result->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?php echo htmlspecialchars($row['day_of_week']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['examples']); ?></td>
+                                    <td><?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['day_of_week']); ?></td>
+                                    <td><?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['examples']); ?></td>
                                 </tr>
-                            <?php endwhile; ?>
-                        <?php else: ?>
+                            <?php
+include_once __DIR__ . '/connect.php'; endwhile; ?>
+                        <?php
+include_once __DIR__ . '/connect.php'; else: ?>
                             <tr>
                                 <td colspan="2">No diet plans found.</td>
                             </tr>
-                        <?php endif; ?>
+                        <?php
+include_once __DIR__ . '/connect.php'; endif; ?>
                     </tbody>
                 </table>
             </div>
@@ -175,3 +184,5 @@ $conn->close();
     <script src="script.js"></script>
 </body>
 </html>
+
+

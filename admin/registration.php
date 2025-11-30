@@ -1,17 +1,18 @@
 <?php
+include_once __DIR__ . '/connect.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start(); // Start the session to access session variables
 }
 
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$username = "root"; 
-$password = ""; 
-$dbname = "SAVVY";
+ // Change this if your database is hosted on a different server
+ 
+ 
+
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -21,8 +22,8 @@ if ($conn->connect_error) {
 // Process registration
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve username and password from form
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    
+    
 
     // Hash the password for security
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -67,3 +68,5 @@ $conn->close();
     </div>
 </body>
 </html>
+
+

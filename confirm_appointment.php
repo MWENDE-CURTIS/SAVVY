@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -102,8 +103,10 @@ $conn->close();
 </head>
 <body>
     <div id="popup" class="popup">
-        <h1>Appointment <?php echo $success ? "Confirmed" : "Failed"; ?></h1>
-        <p><?php echo $success ? "Your appointment has been successfully booked." : "There was an error booking your appointment. Please try again later."; ?></p>
+        <h1>Appointment <?php
+include_once __DIR__ . '/connect.php'; echo $success ? "Confirmed" : "Failed"; ?></h1>
+        <p><?php
+include_once __DIR__ . '/connect.php'; echo $success ? "Your appointment has been successfully booked." : "There was an error booking your appointment. Please try again later."; ?></p>
         <button id="okButton">OK</button>
         <p id="countdown"></p>
     </div>
@@ -136,3 +139,5 @@ $conn->close();
     </script>
 </body>
 </html>
+
+

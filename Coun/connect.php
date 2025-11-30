@@ -1,11 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname='SAVVY';
+include_once __DIR__ . '/connect.php';
+
+
+
+
 
 // Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -13,3 +14,4 @@ if ($conn->connect_error) {
 }
 
 ?>
+

@@ -1,44 +1,32 @@
 <?php
-// --- Database Configuration and Connection ---
+<?php
+// Environment-aware DB connector for SAVVY
+// Parses MYSQL_URL or falls back to separate DB_* env vars.
+// Uses host+port to force TCP (avoid UNIX socket errors on Railway).
 
-// 1. Fetch the single, comprehensive database URL provided by the hosting service (e.g., Railway).
-$database_url = getenv('MYSQL_URL'); 
+$databaseUrl = getenv('MYSQL_URL') ?: getenv('CLEARDB_DATABASE_URL') ?: getenv('DATABASE_URL');
 
-// 2. Ensure the URL variable is set (critical check for deployment).
-if (!$database_url) {
-    error_log("FATAL ERROR: The MYSQL_URL environment variable is missing.");
-    die("Connection error. Please contact support.");
+if ($databaseUrl) {
+    $parts = parse_url($databaseUrl);
+    $db_host = $parts['host'] ?? '127.0.0.1';
+    $db_user = $parts['user'] ?? 'root';
+    $db_pass = $parts['pass'] ?? '';
+    $db_name = isset($parts['path']) ? ltrim($parts['path'], '/') : 'SAVVY';
+    $db_port = isset($parts['port']) ? (int)$parts['port'] : 3306;
+} else {
+    $db_host = getenv('DB_HOST') ?: '127.0.0.1';
+    $db_user = getenv('DB_USER') ?: 'root';
+    $db_pass = getenv('DB_PASS') ?: '';
+    $db_name = getenv('DB_NAME') ?: 'SAVVY';
+    $db_port = (int)(getenv('DB_PORT') ?: 3306);
 }
 
-// 3. Parse the URL into its individual components.
-// Example URL format: mysql://user:password@host:port/database
-$url_parts = parse_url($database_url);
+// Force TCP connection (avoid socket lookup)
+$conn = @new mysqli($db_host, $db_user, $db_pass, $db_name, $db_port);
 
-// Check if parsing was successful and required parts exist
-if ($url_parts === false || !isset($url_parts['host'], $url_parts['user'], $url_parts['pass'], $url_parts['path'])) {
-    error_log("FATAL ERROR: Failed to parse the MYSQL_URL into valid components.");
-    die("Configuration error. Please contact support.");
+if ($conn->connect_errno) {
+    error_log('DB connect error: ' . $conn->connect_error);
+    die('Connection failed: ' . $conn->connect_error);
 }
-
-// 4. Extract individual connection parameters
-// The 'path' starts with a slash, so we remove it to get the pure database name.
-$servername = $url_parts['host']; 
-$username = $url_parts['user']; 
-$password = $url_parts['pass'];
-$dbname = ltrim($url_parts['path'], '/'); 
-// Use the URL port if available, otherwise default to 3306 for MySQL
-$port = isset($url_parts['port']) ? (int)$url_parts['port'] : 3306; 
-
-// Create connection to the remote MySQL Database with PORT
-// Note: The port is passed as the 5th argument (int)
-$conn = new mysqli($servername, $username, $password, $dbname, $port); 
-
-// Check connection
-if ($conn->connect_error) {
-    // Log the detailed error, but show a generic message to the user
-    error_log("Database Connection Failed: " . $conn->connect_error);
-    die("Connection failed: Server error.");
-}
-
-// Optionally set character set
-$conn->set_charset("utf8");
+$conn->set_charset('utf8mb4');
+?>

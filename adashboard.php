@@ -1,11 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "SAVVY";
+include_once __DIR__ . '/connect.php';
+
+
+
+
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -71,7 +72,8 @@ if (isset($_POST['block_user'])) {
         <h1 class="text-center mb-4">Admin Dashboard</h1>
         
         <form method="post" class="form-inline mb-4">
-            <input type="text" name="search" class="form-control mr-2" placeholder="Search by email or ID" value="<?php echo htmlspecialchars($searchQuery); ?>">
+            <input type="text" name="search" class="form-control mr-2" placeholder="Search by email or ID" value="<?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($searchQuery); ?>">
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
 
@@ -79,8 +81,10 @@ if (isset($_POST['block_user'])) {
             <div class="col-md-6">
                 <h3>System Counts</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">User Count: <strong><?php echo getUserCount($conn); ?></strong></li>
-                    <li class="list-group-item">Consultation Count: <strong><?php echo getConsultationCount($conn); ?></strong></li>
+                    <li class="list-group-item">User Count: <strong><?php
+include_once __DIR__ . '/connect.php'; echo getUserCount($conn); ?></strong></li>
+                    <li class="list-group-item">Consultation Count: <strong><?php
+include_once __DIR__ . '/connect.php'; echo getConsultationCount($conn); ?></strong></li>
                 </ul>
             </div>
         </div>
@@ -108,6 +112,7 @@ if (isset($_POST['block_user'])) {
             </thead>
             <tbody>
                 <?php
+include_once __DIR__ . '/connect.php';
                 $users = fetchUsers($conn, $searchQuery);
                 if ($users->num_rows > 0) {
                     while($row = $users->fetch_assoc()) {
@@ -149,5 +154,8 @@ if (isset($_POST['block_user'])) {
 </html>
 
 <?php
+include_once __DIR__ . '/connect.php';
 $conn->close();
 ?>
+
+

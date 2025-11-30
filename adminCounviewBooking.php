@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -22,7 +23,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve admin information from database
-$username = $_SESSION['username'];
+
 $sql = "SELECT * FROM consultant WHERE username='$username'";
 $result = $conn->query($sql);
 
@@ -213,29 +214,40 @@ $conn->close();
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
             </div>
-            <h1>Welcome, <?php echo htmlspecialchars($consultant_name); ?></h1>
+            <h1>Welcome, <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($consultant_name); ?></h1>
             <img src="images/profile.jpg" alt="Profile Image">
         </div>
         <div class="dash-content"> 
             <div class="booking-list">
                 <h1>Your Appointments</h1>
-                <?php if ($bookings && $bookings->num_rows > 0): ?>
-                    <?php while($row = $bookings->fetch_assoc()): ?>
+                <?php
+include_once __DIR__ . '/connect.php'; if ($bookings && $bookings->num_rows > 0): ?>
+                    <?php
+include_once __DIR__ . '/connect.php'; while($row = $bookings->fetch_assoc()): ?>
                         <div class="booking-item">
                             <div class="booking-details">
-                                <h2>Client: <?php echo htmlspecialchars($row['user_name']); ?></h2>
-                                <p>Date: <?php echo htmlspecialchars($row['date']); ?></p>
-                                <p>Time: <?php echo htmlspecialchars($row['time']); ?></p>
+                                <h2>Client: <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['user_name']); ?></h2>
+                                <p>Date: <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['date']); ?></p>
+                                <p>Time: <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['time']); ?></p>
                             </div>
                             <div class="actions">
-                                <button class="button" onclick="showCancelModal(<?php echo $row['consultation_id']; ?>)">Cancel</button>
-                                <button class="button" onclick="showRescheduleModal(<?php echo $row['consultation_id']; ?>)">Reschedule</button>
+                                <button class="button" onclick="showCancelModal(<?php
+include_once __DIR__ . '/connect.php'; echo $row['consultation_id']; ?>)">Cancel</button>
+                                <button class="button" onclick="showRescheduleModal(<?php
+include_once __DIR__ . '/connect.php'; echo $row['consultation_id']; ?>)">Reschedule</button>
                             </div>
                         </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
+                    <?php
+include_once __DIR__ . '/connect.php'; endwhile; ?>
+                <?php
+include_once __DIR__ . '/connect.php'; else: ?>
                     <p>No bookings found.</p>
-                <?php endif; ?>
+                <?php
+include_once __DIR__ . '/connect.php'; endif; ?>
             </div>
 
             <div id="countdown-timer" class="countdown">
@@ -292,3 +304,5 @@ $conn->close();
     </script>
 </body>
 </html>
+
+

@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Database connection parameters
-$servername = "localhost";
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Retrieve admin information from database
-$username = $_SESSION['username'];
+
 $sql = "SELECT * FROM admin WHERE username='$username'";
 $result = $conn->query($sql);
 
@@ -180,7 +181,8 @@ $conn->close();
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
             </div>
-            <h1>Welcome, <?php echo htmlspecialchars($admin_name); ?></h1>
+            <h1>Welcome, <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($admin_name); ?></h1>
             <img src="images/profile.jpg" alt="Profile Image">
         </div>
         <div class="dash-content">
@@ -194,7 +196,8 @@ $conn->close();
             <!-- Popup HTML -->
             <div id="popup" class="popup">
                 <span class="popup-close" onclick="hidePopup()">&times;</span>
-                <p id="popupMessage"><?php echo htmlspecialchars($popupMessage); ?></p>
+                <p id="popupMessage"><?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($popupMessage); ?></p>
             </div>
             <div id="popupOverlay" class="popup-overlay" onclick="hidePopup()"></div>
         </div>
@@ -204,7 +207,8 @@ $conn->close();
             var popup = document.getElementById('popup');
             var overlay = document.getElementById('popupOverlay');
             var popupMessage = document.getElementById('popupMessage');
-            popupMessage.textContent = '<?php echo addslashes($popupMessage); ?>';
+            popupMessage.textContent = '<?php
+include_once __DIR__ . '/connect.php'; echo addslashes($popupMessage); ?>';
             popup.classList.add('show');
             overlay.classList.add('show');
             return false; // Prevent form submission to display the popup
@@ -220,3 +224,5 @@ $conn->close();
     <script src="script.js"></script>
 </body>
 </html>
+
+

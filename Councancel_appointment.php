@@ -1,16 +1,17 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: consultant/counsultlogin.html");
     exit();
 }
 
-$servername = "localhost";
-$db_username = "root";
-$db_password = "";
-$db_name = "SAVVY";
 
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
+
+
+
+
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -66,6 +67,9 @@ $conn->close();
         }
     </script>
 </head>
-<body onload="showPopupAndRedirect('<?php echo $message; ?>')">
+<body onload="showPopupAndRedirect('<?php
+include_once __DIR__ . '/connect.php'; echo $message; ?>')">
 </body>
 </html>
+
+

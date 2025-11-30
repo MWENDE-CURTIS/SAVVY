@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Database connection parameters
-$servername = "localhost";
-$db_username = "root";
-$db_password = "";
-$db_name = "SAVVY";
+
+
+
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -221,30 +222,43 @@ $conn->close();
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
             </div>
-            <h1>Welcome, <?php echo htmlspecialchars($user_fname); ?></h1>
-            <a href="updateprofileview.php"><img src="<?php echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;"></a>
+            <h1>Welcome, <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($user_fname); ?></h1>
+            <a href="updateprofileview.php"><img src="<?php
+include_once __DIR__ . '/connect.php'; echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;"></a>
         </div>
         <div class="dash-content">
             <div class="booking-list">
                 <h1>Your Bookings</h1>
-                <?php if ($bookings && $bookings->num_rows > 0): ?>
-                    <?php while($row = $bookings->fetch_assoc()): ?>
+                <?php
+include_once __DIR__ . '/connect.php'; if ($bookings && $bookings->num_rows > 0): ?>
+                    <?php
+include_once __DIR__ . '/connect.php'; while($row = $bookings->fetch_assoc()): ?>
                         <div class="booking-item">
                             <div class="booking-details">
-                                <h2>Consultant: <?php echo htmlspecialchars($row['consultant_name']); ?></h2>
-                                <p>Date: <?php echo htmlspecialchars($row['date']); ?></p>
-                                <p>Time: <?php echo htmlspecialchars($row['time']); ?></p>
+                                <h2>Consultant: <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['consultant_name']); ?></h2>
+                                <p>Date: <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['date']); ?></p>
+                                <p>Time: <?php
+include_once __DIR__ . '/connect.php'; echo htmlspecialchars($row['time']); ?></p>
                             </div>
                             <div class="actions">
-                                <button class="button" onclick="showCancelModal(<?php echo $row['consultation_id']; ?>)">Cancel</button>
-                                <button class="button" onclick="showRescheduleModal(<?php echo $row['consultation_id']; ?>)">Reschedule</button>
-                                <a href="chat_form.php?consultation_id=<?php echo $row['consultation_id']; ?>" class="button">Chat</a>
+                                <button class="button" onclick="showCancelModal(<?php
+include_once __DIR__ . '/connect.php'; echo $row['consultation_id']; ?>)">Cancel</button>
+                                <button class="button" onclick="showRescheduleModal(<?php
+include_once __DIR__ . '/connect.php'; echo $row['consultation_id']; ?>)">Reschedule</button>
+                                <a href="chat_form.php?consultation_id=<?php
+include_once __DIR__ . '/connect.php'; echo $row['consultation_id']; ?>" class="button">Chat</a>
                             </div>
                         </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
+                    <?php
+include_once __DIR__ . '/connect.php'; endwhile; ?>
+                <?php
+include_once __DIR__ . '/connect.php'; else: ?>
                     <p>No bookings found.</p>
-                <?php endif; ?>
+                <?php
+include_once __DIR__ . '/connect.php'; endif; ?>
             </div>
 
             <div id="countdown-timer" class="countdown">
@@ -323,3 +337,5 @@ $conn->close();
     </script>
 </body>
 </html>
+
+

@@ -1,16 +1,17 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start();
 if (!isset($_SESSION['email'])) {
     header("Location: login.html");
     exit();
 }
 
-$servername = "localhost";
-$db_username = "root";
-$db_password = "";
-$db_name = "SAVVY";
 
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
+
+
+
+
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -39,3 +40,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $conn->close();
 ?>
+
+

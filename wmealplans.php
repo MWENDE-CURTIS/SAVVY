@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to access session variables
 
 // Check if user is logged in, if not redirect to login page
@@ -8,13 +9,13 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$db_username = "root"; // Change this to your database username
-$db_password = ""; // Change this to your database password
-$db_name = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
+
 
 // Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $db_name);
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -370,9 +371,11 @@ button:hover {
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
             </div>
-            <h1><?php echo $user_fname . ' ' . $user_lname; ?></h1>
+            <h1><?php
+include_once __DIR__ . '/connect.php'; echo $user_fname . ' ' . $user_lname; ?></h1>
             
-            <a href="updateprofileview.php"><img src="<?php echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;" ></a>
+            <a href="updateprofileview.php"><img src="<?php
+include_once __DIR__ . '/connect.php'; echo $profile_picture; ?>" alt="Profile Picture" style="width:42px;height:42px;" ></a>
         </div>
 
         <div class="dash-content">
@@ -385,26 +388,42 @@ button:hover {
         <br>
     <a href="mealplans.php" class="btn btn-secondary">Daily</a>
     <a href="wmealplans.php" class="btn btn-primary">Weekly</a>
-        <?php foreach ($days as $day): ?>
+        <?php
+include_once __DIR__ . '/connect.php'; foreach ($days as $day): ?>
             <div class="day-box">
-                <div class="day-title"><?php echo $day; ?></div>
-                <?php foreach (['breakfast', 'lunch', 'dinner'] as $meal_time): ?>
-                    <?php if (!empty($meal_plans_by_day[$day][$meal_time])): ?>
-                        <div class="meal-time"><?php echo ucfirst($meal_time); ?></div>
-                        <?php foreach ($meal_plans_by_day[$day][$meal_time] as $meal): ?>
+                <div class="day-title"><?php
+include_once __DIR__ . '/connect.php'; echo $day; ?></div>
+                <?php
+include_once __DIR__ . '/connect.php'; foreach (['breakfast', 'lunch', 'dinner'] as $meal_time): ?>
+                    <?php
+include_once __DIR__ . '/connect.php'; if (!empty($meal_plans_by_day[$day][$meal_time])): ?>
+                        <div class="meal-time"><?php
+include_once __DIR__ . '/connect.php'; echo ucfirst($meal_time); ?></div>
+                        <?php
+include_once __DIR__ . '/connect.php'; foreach ($meal_plans_by_day[$day][$meal_time] as $meal): ?>
                             <div class="meal-item">
-                                <img src="<?php echo $meal['meal_image']; ?>" alt="Meal Image">
-                                <h3><?php echo $meal['plan_name']; ?></h3>
-                                <p><strong></strong> <?php echo $meal['plan_details']; ?></p>
-                                <p><strong></strong> <?php echo $meal['plan_type']; ?></p>
-                                <p><strong></strong> <?php echo $meal['meal_preference']; ?></p>
-                                <p><strong>Nutrition Values:</strong> <?php echo json_encode($meal['nutrition_values']); ?></p>
+                                <img src="<?php
+include_once __DIR__ . '/connect.php'; echo $meal['meal_image']; ?>" alt="Meal Image">
+                                <h3><?php
+include_once __DIR__ . '/connect.php'; echo $meal['plan_name']; ?></h3>
+                                <p><strong></strong> <?php
+include_once __DIR__ . '/connect.php'; echo $meal['plan_details']; ?></p>
+                                <p><strong></strong> <?php
+include_once __DIR__ . '/connect.php'; echo $meal['plan_type']; ?></p>
+                                <p><strong></strong> <?php
+include_once __DIR__ . '/connect.php'; echo $meal['meal_preference']; ?></p>
+                                <p><strong>Nutrition Values:</strong> <?php
+include_once __DIR__ . '/connect.php'; echo json_encode($meal['nutrition_values']); ?></p>
                             </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                        <?php
+include_once __DIR__ . '/connect.php'; endforeach; ?>
+                    <?php
+include_once __DIR__ . '/connect.php'; endif; ?>
+                <?php
+include_once __DIR__ . '/connect.php'; endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        <?php
+include_once __DIR__ . '/connect.php'; endforeach; ?>
     </div>
 
         
@@ -439,3 +458,4 @@ button:hover {
     <script src="script.js"></script>
 </body>
 </html>
+

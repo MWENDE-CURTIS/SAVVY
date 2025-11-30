@@ -1,13 +1,14 @@
 <?php
+include_once __DIR__ . '/connect.php';
 session_start(); // Start the session to store session variables
 
 // Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$username = "root"; // Change this to your database username
-$password = ""; // Change this to your database password
-$dbname = "SAVVY";
+ // Change this if your database is hosted on a different server
+ // Change this to your database username
+ // Change this to your database password
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+
+
 
 // Check connection
 if ($conn->connect_error) {
@@ -18,7 +19,7 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve email and password from form
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    
 
     // Query to check if user exists with provided credentials
     $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
@@ -44,3 +45,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close connection
 $conn->close();
 ?>
+
+
