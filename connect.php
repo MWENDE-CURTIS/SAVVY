@@ -1,5 +1,15 @@
 <?php
 
+// Diagnostic version to find the real issue
+
+echo "=== DB Connection Debug ===<br>";
+
+// Check if mysqli is loaded
+if (!extension_loaded('mysqli')) {
+    die('FATAL: mysqli extension is not loaded in PHP!');
+}
+echo "✓ mysqli extension loaded<br>";
+
 $databaseUrl = getenv('MYSQL_URL') ?: getenv('CLEARDB_DATABASE_URL') ?: getenv('DATABASE_URL');
 
 if ($databaseUrl) {
