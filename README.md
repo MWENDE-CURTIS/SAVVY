@@ -1,5 +1,6 @@
 
------SAVVY  — Smart Meal Planning, Health Management & Delivery Platform
+----- SAVVY  — Smart Meal Planning, Health Management & Delivery Platform
+
 Live deployment link : savvy-production.up.railway.app
 Pitch deck link: https://app.presentations.ai/view/e7UNkKvDyg
 
